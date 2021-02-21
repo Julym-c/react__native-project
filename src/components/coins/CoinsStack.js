@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 
 import Coins from './Coins';
-import CoinsDetail from './CoinsDetail';
+import CoinsDetail from './coinDetail/CoinsDetail';
 import Colors from '../../resources/Colors';
 
 /*Siempre va para poder poner la navegación de las pantallas*/
@@ -27,7 +27,7 @@ const CoinsStack = () => {
             />
             
             <Stack.Screen 
-                name="Coins__Detail" 
+                name="Detail" 
                 component={CoinsDetail}
             />
         </Stack.Navigator>

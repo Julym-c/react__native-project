@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, Platform } from 'react-native'
+import { View, Text, StyleSheet, Image, Platform, Pressable } from 'react-native'
 import { color } from 'react-native-reanimated';
 
 import Colors from '../../resources/Colors';
 
-const CoinsItems = ({item}) => {
+const CoinsItems = ({item, onPress}) => {
     
     let getTextValue = () => {
         if ( item.percent_change_1h > 0 ) {
@@ -26,7 +26,10 @@ const CoinsItems = ({item}) => {
 
 
     return (
-        <View style={styles.container}>
+        <Pressable 
+            style={styles.container}
+            onPress= {onPress}
+        >
             <View>
                 <Text style={ styles.symbolText }> {item.symbol} </Text>
                 <Text style={ styles.nameText }> {item.name} </Text>
@@ -42,7 +45,7 @@ const CoinsItems = ({item}) => {
                 </View>
                 <Text style={ styles.value }> {`$ ${item.price_usd}`} </Text>
             </View>
-        </View>
+        </Pressable>
     );
 }
 

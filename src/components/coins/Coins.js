@@ -22,10 +22,10 @@ class Coins extends Component {
         this.setState ({ coin: res.data, loading:false });
     }
 
-    handlepress = () => {
+    handlepress = (coinValue) => {
         console.log("Go to detail", this.props);
         /*props es para llamar los estados del componente en este caso navigate*/
-        this.props.navigation.navigate('Coins__Detail')
+        this.props.navigation.navigate('Detail', {coinValue})
     }
 
     render (){
@@ -46,7 +46,10 @@ class Coins extends Component {
                     data= {coin}
                     renderItem={({ item }) => 
                         /* se crea un componente fuera y se pone con el parametro de item*/
-                        <CoinsItems item= { item }/>
+                        <CoinsItems 
+                            onPress={() => this.handlepress(item)}
+                            item= { item } 
+                        />
                     }
                 />
             </View>
